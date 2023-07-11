@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% block title %}New Finch{% endblock title %}
 {% block content %}
-    <h1 class="text-white">Add a new finch</h1>
+    {% if object %}
+        <h1 class="text-white">Edit {{ object.name }}</h1>
+    {% else %}
+        <h1 class="text-white">Add a new finch</h1>
+    {% endif %}
     <form action="" method="POST" class="text-white">
         {% csrf_token %}
         {{ form.as_p }}

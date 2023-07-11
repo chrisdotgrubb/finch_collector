@@ -8,5 +8,9 @@
             <p class="card-text">{{ finch.colors }}</p>
             <p class="card-text">{{ finch.diet }}</p>
         </div>
+        <div class="container-fluid">
+            <a href="{% url 'finch:update' finch.pk %}" class="btn btn-warning">edit</a>
+            <a href="{% url 'finch:delete' finch.pk %}" class="btn btn-danger">delete</a>
+        </div>
     </div>
 {% endblock content %}

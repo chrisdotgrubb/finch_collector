@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from django.urls import reverse
-from django.views.generic import CreateView
+from django.urls import reverse_lazy
+from django.views import generic
 
 from .models import Finch
 
@@ -23,6 +23,15 @@ def detail(request, pk):
 	}
 	return render(request, 'detail.html', context)
 
-class FinchCreate(CreateView):
+class FinchCreate(generic.CreateView):
 	model = Finch
 	fields = '__all__'
+
+class FinchUpdate(generic.UpdateView):
+	model = Finch
+	fields = '__all__'
+
+class FinchDelete(generic.DeleteView):
+	model = Finch
+	success_url = reverse_lazy('finch:home')
+str
