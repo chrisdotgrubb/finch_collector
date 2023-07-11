@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
+from django.views.generic import CreateView
 
 from .models import Finch
 
@@ -20,3 +22,7 @@ def detail(request, pk):
 		'finch': get_object_or_404(Finch, pk=pk),
 	}
 	return render(request, 'detail.html', context)
+
+class FinchCreate(CreateView):
+	model = Finch
+	fields = '__all__'
