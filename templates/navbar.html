@@ -24,7 +24,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         {% for nav_finch in nav_finches %}
-                            <li><a class="dropdown-item" href="#">{{ nav_finch.name }}</a></li>
+                            <li><a class="dropdown-item" href="/finches/{{ nav_finch.id }}">{{ nav_finch.name }}</a></li>
                         {% endfor %}
 
                     </ul>

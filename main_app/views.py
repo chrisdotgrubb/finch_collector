@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Finch
 
@@ -14,3 +14,10 @@ def index(request):
 
 def about(request):
 	return render(request, 'about.html', context={})
+
+def detail(request, pk):
+	context = {
+		'finch': get_object_or_404(Finch, pk=pk),
+	}
+	print(context, pk)
+	return render(request, 'detail.html', context)

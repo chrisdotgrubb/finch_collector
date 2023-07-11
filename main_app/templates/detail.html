@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Finches{% endblock title %}
+{% block content %}
+    <h1>{{ finch.name }}</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ finch.name }}</h5>
+            <p class="card-text">{{ finch.colors }}</p>
+            <p class="card-text">{{ finch.diet }}</p>
+        </div>
+    </div>
+{% endblock content %}
