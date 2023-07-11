@@ -3,12 +3,14 @@
 {% block content %}
     <h1>All finches</h1>
     {% for finch in finches %}
-        <div class="container-fluid p-2">
-            <ul class="list-group col-4 mx-auto">
-                <li class="list-group-item bg-secondary">{{ finch.name }}</li>
-                <li class="list-group-item">{{ finch.color }}</li>
-                <li class="list-group-item">{{ finch.diet }}</li>
-            </ul>
-        </div>
+        <a href="/finches/{{ finch.id }}">
+            <div class="container-fluid p-2">
+                <ul class="list-group col-4 mx-auto">
+                    <li class="list-group-item bg-secondary">{{ finch.name }}</li>
+                    <li class="list-group-item">{{ finch.colors }}</li>
+                    <li class="list-group-item">{{ finch.diet }}</li>
+                </ul>
+            </div>
+        </a>
     {% endfor %}
 {% endblock content %}

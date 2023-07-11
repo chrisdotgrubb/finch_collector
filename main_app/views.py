@@ -1,38 +1,13 @@
 from django.shortcuts import render
 
+from .models import Finch
+
 # Create your views here.
-finches = [
-	{
-		'name': 'American Goldfinch',
-		'color': 'black and yellow',
-		'diet': 'vegetarian',
-	},
-	{
-		'name': 'House Finch',
-		'color': 'red and brown',
-		'diet': 'seeds',
-	},
-	{
-		'name': 'Red Crossbill',
-		'color': 'red and black',
-		'diet': 'pinecones',
-	},
-	{
-		'name': 'Purple Finch',
-		'color': 'purple and red',
-		'diet': 'sunflower seeds',
-	},
-	{
-		'name': 'Blue Grosbeak',
-		'color': 'blue and silver',
-		'diet': 'seeds',
-	},
-]
 
 
 def index(request):
 	context = {
-		'finches': finches,
+		'finches': Finch.objects.all(),
 	}
 	return render(request, 'index.html', context)
 

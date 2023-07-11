@@ -1,4 +1,4 @@
-from .views import finches
+from .models import Finch
 
 def nav_finches(request):
-	return {'nav_finches': finches}
+	return {'nav_finches': Finch.objects.all()}
