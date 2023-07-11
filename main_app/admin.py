@@ -10,7 +10,6 @@ class FinchAdminConfig(admin.ModelAdmin):
 
 class FeedingAdminConfig(admin.ModelAdmin):
 	list_display = ('date', 'meal', 'finch')
-	ordering = ('finch',)
 	
 	
 admin.site.register(Finch, FinchAdminConfig)
