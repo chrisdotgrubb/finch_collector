@@ -2,15 +2,35 @@
 {% block title %}Finches{% endblock title %}
 {% block content %}
     <h1>{{ finch.name }}</h1>
-    <div class="card col-4 mx-auto">
-        <div class="card-body">
-            <h5 class="card-title">{{ finch.name }}</h5>
-            <p class="card-text">{{ finch.colors }}</p>
-            <p class="card-text">{{ finch.diet }}</p>
+    <div class="row justify-content-center">
+        <div class="card col-4 p-2 m-2">
+            <div class="card-body">
+                <h5 class="card-title">{{ finch.name }}</h5>
+                <p class="card-text">{{ finch.colors }}</p>
+                <p class="card-text">{{ finch.diet }}</p>
+            </div>
+            <div class="container-fluid">
+                <a href="{% url 'finch:update' finch.pk %}" class="btn btn-warning">edit</a>
+                <a href="{% url 'finch:delete' finch.pk %}" class="btn btn-danger">delete</a>
+            </div>
         </div>
-        <div class="container-fluid">
-            <a href="{% url 'finch:update' finch.pk %}" class="btn btn-warning">edit</a>
-            <a href="{% url 'finch:delete' finch.pk %}" class="btn btn-danger">delete</a>
+        <div class="card col-4 p-2 m-2">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Meal</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for feeding in finch.feedings.all %}
+                    <tr scope="row">
+                        <td>{{ feeding.date }}</td>
+                        <td>{{ feeding.get_meal_display }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 {% endblock content %}

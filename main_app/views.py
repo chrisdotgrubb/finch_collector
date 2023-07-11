@@ -13,7 +13,6 @@ def index(request):
 	}
 	return render(request, 'index.html', context)
 
-
 def about(request):
 	return render(request, 'about.html', context={})
 
@@ -34,4 +33,3 @@ class FinchUpdate(generic.UpdateView):
 class FinchDelete(generic.DeleteView):
 	model = Finch
 	success_url = reverse_lazy('finch:home')
-str

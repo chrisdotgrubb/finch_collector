@@ -18,3 +18,19 @@ class Finch(models.Model):
 	
 	def get_absolute_url(self):
 		return reverse('finch:detail', kwargs={'pk': self.pk})
+
+
+class Feeding(models.Model):
+	MEAL_CHOICES = (
+		('B', 'Breakfast'),
+		('L', 'Lunch'),
+		('D', 'Dinner'),
+	)
+	
+	date = models.DateField(verbose_name='Feeding Date')
+	meal = models.CharField(max_length=1, choices=MEAL_CHOICES, default='B')
+	finch = models.ForeignKey(Finch, on_delete=models.CASCADE, related_name='feedings')
+	
+	def __str__(self):
+		return f'{self.get_meal_display()} on {self.date}'
+	
