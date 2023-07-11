@@ -19,5 +19,4 @@ def detail(request, pk):
 	context = {
 		'finch': get_object_or_404(Finch, pk=pk),
 	}
-	print(context, pk)
 	return render(request, 'detail.html', context)
