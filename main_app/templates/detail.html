@@ -25,6 +25,14 @@
                 </form>
         </div>
         <hr>
+        <div>
+            {% if finch.fed_today %}
+                <h2 class="h5">{{ finch.name }} has been fully fed today</h2>
+            {% else %}
+                <h2 class="h5">{{ finch.name }} might be hungry</h2>
+            {% endif %}
+        </div>
+            <hr>
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -34,7 +42,7 @@
                     </thead>
                     <tbody>
                     {% for feeding in finch.feedings.all %}
-                        <tr scope="row">
+                        <tr>
                             <td>{{ feeding.date }}</td>
                             <td>{{ feeding.get_meal_display }}</td>
                         </tr>
